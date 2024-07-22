@@ -7,6 +7,12 @@ const app = express();
 // ** Server Port 설정 (3000번)
 app.set("port", 3000);
 
+// ** router 설정
+const indexRouter = require("./routes");
+
+// ** router 연결
+app.use("/index", indexRouter);
+
 // ** GET / 요청시 함수 실행
 app.get("/", (req, res) => {
   // 'Hello World!'를 전송한다.
