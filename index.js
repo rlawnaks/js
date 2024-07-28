@@ -4,6 +4,16 @@ const express = require("express");
 // ** express 모듈을 변수에 할당
 const app = express();
 
+const pool = require("./db")
+pool((sql) => {
+  // sql.query("insert into tbl_user value(?,?,?)", param, (err, doc) => {
+  //     //err가 있으면 err를 출력하고, 없으면 true를 보내줌
+  //     err ? console.log(err) : res.send({result : true})
+  // })
+  //DB 연결 해제
+  sql.release()
+})
+
 // ** Server Port 설정 (3000번)
 app.set("port", 3000);
 
